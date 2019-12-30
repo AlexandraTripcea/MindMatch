@@ -1,7 +1,8 @@
 <button type="button"
         class="login_func"
-        (click)="authService.SigninWithGoogle()"
+        (click)="callLoginAndSaveUserData()"
 >Sign in</button>
+
 <button type= "button"
         class="login_func"
         (click)="authService.SignOut()">Sign Out</button>

@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../shared/auth.service';
+import {AuthService} from '../services/auth.service';
+import {Router} from '@angular/router';
+import {Observable} from 'rxjs';
+import {User} from '../services/user';
 
 @Component({
   selector: 'app-login',
@@ -7,13 +10,19 @@ import {AuthService} from '../shared/auth.service';
 })
 
 export class LoginComponent implements OnInit {
-  loggedIn = false;
+  $nextUser: Observable<User>;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.loggedIn = this.authService.user.emailVerified;
+
+  }
+
+  callLoginAndSaveUserData() {
+    // this.$nextUser.query
+    this.authService.SigninWithGoogle();
+
   }
 
 }

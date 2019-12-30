@@ -1,1 +1,15 @@
-<h1>This is the register page</h1>
+<h1>Hello, stranger!</h1>
+<br>
+
+<h3>Before you move on to finding your MindMatch, we need to get acquainted!</h3>
+<button
+  (click)="showTheQuestionnaire=!showTheQuestionnaire"
+  class="btn btn-dark">Let's get this show on the road!</button>
+
+<div *ngIf="showTheQuestionnaire">
+  <form>
+    <p>test</p>
+  </form>
+
+</div>
+
