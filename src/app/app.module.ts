@@ -12,6 +12,8 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {ProfileComponent} from './profile';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {FormsModule} from '@angular/forms';
+import {MatcherComponent} from './matcher/matcher.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    MatcherComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
