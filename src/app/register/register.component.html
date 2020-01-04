@@ -1,15 +1,33 @@
 <h1>Hello, stranger!</h1>
 <br>
 
-<h3>Before you move on to finding your MindMatch, we need to get acquainted!</h3>
-<button
-  (click)="showTheQuestionnaire=!showTheQuestionnaire"
-  class="btn btn-dark">Let's get this show on the road!</button>
-
+<h3>Before you move on to finding your MindMatch, we need to get acquainted</h3>
+<div *ngIf="!showTheQuestionnaire">
+  <button
+    (click)="showTheQuestionnaire=!showTheQuestionnaire;"
+    class="btn btn-dark">Let's get this show on the road!
+  </button>
+</div>
 <div *ngIf="showTheQuestionnaire">
-  <form>
-    <p>test</p>
-  </form>
+  <div  *ngFor="let nextGroup of personalQuestionnaireGroup; let i = index;">
+    <form  [formGroup]="nextGroup">
+        {{nextGroup.get('question').value}}
+      <div formArrayName="answers"
+           *ngFor="let answer of getAnswersArrayAtIndex(i).controls;let j = index;">
+          <mat-checkbox [formControl]="answer"
+                        labelPosition="before"
+                        id="answer{{j}}"
+                        aria-labelledby="answer{{j}}"
+                        (change)="getSelectedAnswers(i)">
+            {{possibleAnswersPersQues[j]}}
+          </mat-checkbox>
+      </div>
+
+
+    </form>
+
+
+  </div>
 
 </div>
 

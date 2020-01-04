@@ -12,6 +12,10 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {ProfileComponent} from './profile';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCheckboxModule, MatSelectModule} from '@angular/material';
+import { DivcontrolComponent } from './divcontrol/divcontrol.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,8 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    DivcontrolComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,12 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
