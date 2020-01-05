@@ -15,24 +15,18 @@ import {User} from 'firebase';
 export class ProfileComponent implements OnInit {
 
   profile: User;
-  profileData: FirebaseFirestore;
+
   profileName = '';
   profileEmail = '';
   profileImage = '';
-  hop; profileDescription; profileRandomStuff;
+  hop;
+  profileDescription;
+  profileRandomStuff;
 
-  constructor() {
+  constructor(private profileData: FirebaseFirestore) {
+
     console.log('cons');
-    this.profile = firebase.auth().currentUser;
-    this.profileData = firebase.firestore();
-    console.log(this.profile.uid);
 
-    this.hop = this.profileData.doc('users/' + this.profile.uid).get();
-    console.log(this.hop.displayName);
-
-    this.profileName = this.profile.displayName;
-    this.profileEmail = this.profile.email;
-    this.profileImage = this.profile.photoURL;
     // this.profileDescription = this.profile.des;
   }
 
@@ -52,8 +46,18 @@ export class ProfileComponent implements OnInit {
     this.profileData.doc('users/' + this.profile.uid).update({displayName: this.profileName});
 
   }
+
   ngOnInit() {
-    console.log('ng');
+    this.profile = firebase.auth().currentUser;
+    this.profileData = firebase.firestore();
+    console.log(this.profile.uid);
+
+    this.hop = this.profileData.doc('users/' + this.profile.uid).get();
+    console.log(this.hop.displayName);
+
+    this.profileName = this.profile.displayName;
+    this.profileEmail = this.profile.email;
+    this.profileImage = this.profile.photoURL;
   }
 
 }
