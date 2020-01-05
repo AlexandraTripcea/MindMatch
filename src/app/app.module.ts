@@ -14,6 +14,10 @@ import {ProfileComponent} from './profile';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {FormsModule} from '@angular/forms';
 import {MatcherComponent} from './matcher/matcher.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCheckboxModule, MatSelectModule} from '@angular/material';
+import { DivcontrolComponent } from './divcontrol/divcontrol.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,8 @@ import {MatcherComponent} from './matcher/matcher.component';
     RegisterComponent,
     ProfileComponent,
     MatcherComponent
+    DivcontrolComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -33,6 +39,11 @@ import {MatcherComponent} from './matcher/matcher.component';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
