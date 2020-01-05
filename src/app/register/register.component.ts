@@ -9,9 +9,6 @@ import {DivcontrolComponent} from '../divcontrol/divcontrol.component';
 
 export class RegisterComponent {
   private tempResponseBuilder = [];
-  private responseValidation1 = true;
-  private responseValidation2 = true;
-  private formPosition = 0;
   private finalResponse = [];
   showTheQuestionnaire = false;
   personalQuestions = [
@@ -59,11 +56,12 @@ export class RegisterComponent {
   getSelectedAnswers(index: number) {
     this.tempResponseBuilder = [];
     this.getAnswersArrayAtIndex(index).controls.forEach((control, i) => {
-      if (control.value) {
+      if (!control.value) {
         this.tempResponseBuilder.push(this.possibleAnswersPersQues[i]);
       }
     });
-    this.finalResponse.concat(this.tempResponseBuilder);
+
+    this.finalResponse.push(this.tempResponseBuilder[0]);
     console.log(this.finalResponse);
 
   }

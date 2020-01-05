@@ -18,6 +18,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCheckboxModule, MatSelectModule} from '@angular/material';
 import { DivcontrolComponent } from './divcontrol/divcontrol.component';
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { DivcontrolComponent } from './divcontrol/divcontrol.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCheckboxModule,
-    MatSelectModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

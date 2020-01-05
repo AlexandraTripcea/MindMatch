@@ -11,16 +11,18 @@
 <div *ngIf="showTheQuestionnaire">
   <div  *ngFor="let nextGroup of personalQuestionnaireGroup; let i = index;">
     <form  [formGroup]="nextGroup">
-        {{nextGroup.get('question').value}}
+      {{nextGroup.get('question').value}}
       <div formArrayName="answers"
            *ngFor="let answer of getAnswersArrayAtIndex(i).controls;let j = index;">
-          <mat-checkbox [formControl]="answer"
-                        labelPosition="before"
-                        id="answer{{j}}"
-                        aria-labelledby="answer{{j}}"
-                        (change)="getSelectedAnswers(i)">
-            {{possibleAnswersPersQues[j]}}
-          </mat-checkbox>
+
+        <mat-checkbox [formControl]="answer"
+                      [checked]="answer.value"
+                      labelPosition="before"
+                      id="answer{{i}}{{j}}"
+                      aria-labelledby="answer{{j}}"
+                      (change)="getSelectedAnswers(i)">
+          {{possibleAnswersPersQues[j]}}
+        </mat-checkbox>
       </div>
 
 
@@ -30,4 +32,3 @@
   </div>
 
 </div>
-
