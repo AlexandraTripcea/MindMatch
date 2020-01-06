@@ -1,4 +1,4 @@
-import {Routes, RouterModule} from '@angular/router';
+import {Routes, RouterModule, CanActivate} from '@angular/router';
 
 import {HomeComponent} from '../home';
 import {LoginComponent} from '../login';
@@ -10,9 +10,9 @@ import {AuthGuard} from '../auth.guard';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'matcher', component: MatcherComponent},
+  {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  {path: 'matcher', component: MatcherComponent, canActivate: [AuthGuard]},
 
 
   // otherwise redirect to home

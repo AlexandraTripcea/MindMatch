@@ -1,6 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
 import {HomeComponent} from './home';
 import {LoginComponent} from './login';
 import {RegisterComponent} from './register';
@@ -12,13 +12,13 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {ProfileComponent} from './profile';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
-import {FormsModule} from '@angular/forms';
 import {MatcherComponent} from './matcher/matcher.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule, MatSelectModule} from '@angular/material';
-import { DivcontrolComponent } from './divcontrol/divcontrol.component';
-import {MatRadioModule} from "@angular/material/radio";
+import {AuthGuard} from "./auth.guard";
+import {AuthService} from "./services/auth.service";
+
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import {MatRadioModule} from "@angular/material/radio";
     RegisterComponent,
     ProfileComponent,
     MatcherComponent
-    DivcontrolComponent,
+
 
   ],
   imports: [
@@ -39,14 +39,13 @@ import {MatRadioModule} from "@angular/material/radio";
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    FormsModule
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCheckboxModule,
-    MatRadioModule,
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

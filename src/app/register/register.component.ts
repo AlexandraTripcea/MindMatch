@@ -1,6 +1,9 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
-import {DivcontrolComponent} from '../divcontrol/divcontrol.component';
+import {AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore';
+import {Router} from '@angular/router';
+import {User} from '../services/user';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-register',
@@ -32,7 +35,7 @@ export class RegisterComponent {
   possibleAnswersPersQues = ['A', 'B', 'C', 'D'];
 
   // personalQuestionnaireGroup: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private db: AngularFirestore, private router: Router) {
     let i: number;
     for (i = 0; i < this.personalQuestions.length; ++i) {
       this.personalQuestionnaireGroup[i] = this.fb.group({
@@ -63,6 +66,15 @@ export class RegisterComponent {
 
     this.finalResponse.push(this.tempResponseBuilder[0]);
     console.log(this.finalResponse);
+
+  }
+
+  storeInfoToFirestore() {
+    const user = firebase.auth().currentUser;
+    console.log(user.uid);
+    this.db.collection('usersRegisterCode').doc(user.uid).set({userCNP: this.finalResponse}).then(r => {
+      console.log(r);
+    });
 
   }
 

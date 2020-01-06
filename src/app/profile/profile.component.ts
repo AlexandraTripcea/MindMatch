@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import firebase from '@firebase/app';
 import '@firebase/auth';
 import '@firebase/firestore';
@@ -11,6 +11,9 @@ import {User} from 'firebase';
     templateUrl: './profile.component.html'
   }
 )
+@Injectable({
+  providedIn: 'root'
+})
 
 export class ProfileComponent implements OnInit {
 
@@ -20,10 +23,10 @@ export class ProfileComponent implements OnInit {
   profileEmail = '';
   profileImage = '';
   hop;
-  profileDescription;
-  profileRandomStuff;
 
-  constructor(private profileData: FirebaseFirestore) {
+  private profileData: FirebaseFirestore;
+
+  constructor() {
 
     console.log('cons');
 
