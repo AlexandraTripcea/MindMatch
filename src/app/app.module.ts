@@ -12,13 +12,11 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {ProfileComponent} from './profile';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
-import {FormsModule} from '@angular/forms';
 import {MatcherComponent} from './matcher/matcher.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCheckboxModule, MatSelectModule} from '@angular/material';
 import { DivcontrolComponent } from './divcontrol/divcontrol.component';
-import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
@@ -28,7 +26,6 @@ import {MatRadioModule} from "@angular/material/radio";
     RegisterComponent,
     ProfileComponent,
     MatcherComponent
-    DivcontrolComponent,
 
   ],
   imports: [
@@ -39,12 +36,10 @@ import {MatRadioModule} from "@angular/material/radio";
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    FormsModule
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCheckboxModule,
-    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
