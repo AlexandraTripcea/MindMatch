@@ -1,6 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
 import {HomeComponent} from './home';
 import {LoginComponent} from './login';
 import {RegisterComponent} from './register';
@@ -14,9 +14,14 @@ import {ProfileComponent} from './profile';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {MatcherComponent} from './matcher/matcher.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule, MatSelectModule} from '@angular/material';
 import { DivcontrolComponent } from './divcontrol/divcontrol.component';
+
+import {AuthGuard} from './auth.guard';
+import {AuthService} from './services/auth.service';
+
+
 
 @NgModule({
   declarations: [
@@ -26,6 +31,10 @@ import { DivcontrolComponent } from './divcontrol/divcontrol.component';
     RegisterComponent,
     ProfileComponent,
     MatcherComponent
+
+
+
+
 
   ],
   imports: [
@@ -41,7 +50,8 @@ import { DivcontrolComponent } from './divcontrol/divcontrol.component';
     BrowserAnimationsModule,
     MatCheckboxModule,
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

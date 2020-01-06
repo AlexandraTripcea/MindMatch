@@ -11,6 +11,9 @@ import {User} from 'firebase';
     templateUrl: './profile.component.html'
   }
 )
+@Injectable({
+  providedIn: 'root'
+})
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +21,14 @@ import {User} from 'firebase';
 export class ProfileComponent implements OnInit {
 
   profile: User;
-  profileData: FirebaseFirestore;
+  // profileData: FirebaseFirestore;
   profileName = '';
   profileEmail = '';
   profileImage = '';
   hop;
-  profileDescription;
-  profileRandomStuff;
+
+
+  private profileData: FirebaseFirestore;
 
   constructor() {
 

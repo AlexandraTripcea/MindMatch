@@ -63,9 +63,7 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified
-      // description: user.description,
-      // randomFun: user.randomFun,
-      // pNum: user.randomFun
+
     };
 
     return userRef.set(data, {merge: true});
