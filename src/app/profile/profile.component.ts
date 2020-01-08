@@ -25,14 +25,15 @@ export class ProfileComponent implements OnInit {
   profileName = '';
   profileEmail = '';
   profileImage = '';
-  hop;
+  userDescription: string;
+  randomFun: string;
 
 
-  private profileData: FirebaseFirestore;
+  private firestore: FirebaseFirestore;
 
   constructor() {
 
-    console.log('cons');
+    // console.log('cons');
 
     // this.profileDescription = this.profile.des;
   }
@@ -50,32 +51,42 @@ export class ProfileComponent implements OnInit {
   }
 
   saveChanges() {
-    this.profileData.doc('users/' + this.profile.uid).update({displayName: this.profileName});
+    console.log(this.userDescription);
+    console.log(this.randomFun);
+    this.firestore.doc('users/' + this.profile.uid).update({displayName: this.profileName});
+    this.firestore.doc('usersRegisterCode/' + this.profile.uid).update({description: this.userDescription});
+    this.firestore.doc('usersRegisterCode/' + this.profile.uid).update({randomFun: this.randomFun});
+
 
   }
 
   ngOnInit() {
     this.savealways();
     if (firebase.auth().currentUser) {
-      console.log('da');
+      // console.log('da');
     } else {
-      console.log('nu');
+      // console.log('nu');
     }
 
     this.profile = firebase.auth().currentUser;
-    this.profileData = firebase.firestore();
+    this.firestore = firebase.firestore();
 
 
-    console.log(this.profile.uid);
+    // console.log(this.profile.displayName);
+    this.profileName = this.profile.displayName;
 // --------
-    this.profileData.doc('users/' + this.profile.uid).get().then(name => {
-      if (name.exists) {
-        this.profileName = name.data.name;
-        // console.log(name.data.toString());
+    this.firestore.doc('users/' + this.profile.uid).get().then(user => {
+      if (user.exists) {
+        // console.log(user._document.proto.fields.displayName);
+        console.log(user.get('email'));
+        // this.profileName = user.get('displayName');
+        // this.profileName = user.// console.log(name.data.toString());
       } else {
         console.log('nu mere');
       }
     });
+    // console.log(this.firestore.collection('users').get().then( x => { console.log(x); } ));
+    // (this.firestore.collection('users').get().then( x => { console.log(x); } )
     // console.log(this.hop.displayName);
     // console.log(this.profileName);
 

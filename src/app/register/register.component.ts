@@ -72,7 +72,7 @@ export class RegisterComponent {
   storeInfoToFirestore() {
     const user = firebase.auth().currentUser;
     console.log(user.uid);
-    this.db.collection('usersRegisterCode').doc(user.uid).set({userCNP: this.finalResponse}).then(r => {
+    this.db.collection('usersRegisterCode').doc(user.uid).update({userCNP: this.finalResponse}).then(r => {
       console.log(r);
     });
 

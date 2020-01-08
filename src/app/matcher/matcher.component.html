@@ -1,12 +1,4 @@
 
-<!--<div style="padding-top:7%;"></div>-->
-<input value="cnp1" [(ngModel)]="cnp1">
-<input value="cnp1" [(ngModel)]="cnp2">
-<input id="gogo" value="{{solution}}">
-<button (click)="scoreCreator()">Click</button>
-<button (click)="matcher()">GetUsers</button>
-<!--[value]="matching()"-->
-
 
 <div class="row" style="height:70%; padding-bottom:3%;">
   <div class="column" style="width:15%;"></div>
@@ -17,7 +9,7 @@
         <div class="col-1"></div>
         <div class="col-4"><h3><b>My friend!</b></h3></div>
         <div class="col-5"></div>
-        <div class="col-1" >68%</div>
+<!--        <input class="col-1" [(ngModel)]="score">-->
         <div class="col-1"></div>
       </div>
     </div>
@@ -32,12 +24,12 @@
         <form action="/action_page.php">
           <label><b>Description:</b></label>
           <br>
-          <textarea name="subject" placeholder="Write something.." style="height:25%; width:100%;"></textarea>
+          <textarea name="subject" [(ngModel)]="arrCnp" placeholder="Write something.." style="height:25%; width:100%;"></textarea>
           <br>
           <br>
           <label ><b>Random fun:</b></label>
           <br>
-          <textarea id="test" name="subject" placeholder="Write something.." style="height:25%; width:100%;"></textarea>
+          <textarea id="test" name="subject2"  [(ngModel)]="arrUid" placeholder="Write something.." style="height:25%; width:100%;"></textarea>
         </form>
       </div>
       <div class="col-lg-1 col-md-1 col-sm-1" style="width:5%;height:60%;"></div>
@@ -52,7 +44,7 @@
     <button type="button" class="btn btn-danger" style="width:100%">Match!</button>
   </div>
   <div class="col-lg-1 col-md-2 col-sm-2" style="width:100%;">
-    <button type="button" class="btn btn-warning" style="width:100%">Next!</button>
+    <button type="button" class="btn btn-warning" style="width:100%" (click)="nextProfile()">Next!</button>
   </div>
 
   <div class="col-2"></div>

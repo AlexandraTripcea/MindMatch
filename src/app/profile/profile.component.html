@@ -16,10 +16,10 @@
       </div>
 <!--      <div class="col-lg-1 col-md-1 col-sm-1" ></div>-->
       <div class="col-lg-2 col-md-2 col-sm-2" style=" padding-top:2%;">
-        <form action="/action_page.php">
+        <form>
           <label for="fname"><b>First Name:</b></label>
           <br>
-          <input type="text" id="fname" name="firstname" [(ngModel)]="profileName" [value]="getUserName()">
+          <input type="text" name="name" id="fname" [(ngModel)]="profileName" >
           <br>
           <!-- <label for="lname">Last Name</label>
           <input type="text" id="lname" name="lastname" placeholder="Your last name..">
@@ -37,13 +37,13 @@
         <form action="/action_page.php">
           <label ><b>Subject:</b></label>
           <br>
-          <textarea  name="subject" placeholder="Write something.." style="height:45%"></textarea>
+          <textarea  name="subject" [(ngModel)]="userDescription" placeholder="Write something.." style="height:45%"></textarea>
           <br>
         </form>
         <form action="/action_page.php">
           <label ><b>Random fun:</b></label>
           <br>
-          <textarea  name="subject" placeholder="Write something.." style="height:45%"></textarea>
+          <textarea  name="subject" [(ngModel)]="randomFun" placeholder="Write something.." style="height:45%"></textarea>
           <br>
           <div style="padding-top:3%;"></div>
           <button (click) = "saveChanges()" >Save</button>
