@@ -41,8 +41,7 @@ export class AuthService {
   }
 
   routeUserToRightPage(user: User) {
-
-    this.db.firestore.doc('users/' + user.uid).get().then(doc => {
+    this.db.firestore.doc('usersRegisterCode/' + user.uid).get().then(doc => {
       if (doc.exists) {
         this.router.navigate(['profile']);
       } else {

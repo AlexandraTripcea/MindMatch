@@ -74,6 +74,7 @@ export class RegisterComponent {
     console.log(user.uid);
     this.db.collection('usersRegisterCode').doc(user.uid).update({userCNP: this.finalResponse}).then(r => {
       console.log(r);
+      this.router.navigate(['profile']);
     });
 
   }
